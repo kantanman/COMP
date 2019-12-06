@@ -1,0 +1,145 @@
+!!python/object:server_data.Data
+channel_id_ct: 2
+channels:
+  1: !!python/object:server_data.Channels
+    channel_id: 1
+    is_public: 'true'
+    members:
+    - 1
+    - 2
+    messages:
+    - !!python/object:server_data.Messages
+      content: how are u
+      message_id: 2
+      reaction: {}
+      sender: 2
+      status: false
+      time: 1573803972.20523
+    - !!python/object:server_data.Messages
+      content: hi
+      message_id: 1
+      reaction: {}
+      sender: 2
+      status: false
+      time: 1573803969.019024
+    - !!python/object:server_data.Messages
+      content: '123'
+      message_id: 0
+      reaction:
+        1:
+          is_this_user_reacted: true
+          u_ids:
+          - 2
+      sender: 1
+      status: true
+      time: 1573789447.8952599
+    name: CHANNEL_1
+    owner:
+    - 1
+    standups: []
+    starter: null
+    status: false
+    time_finish: null
+  2: !!python/object:server_data.Channels
+    channel_id: 2
+    is_public: 'true'
+    members:
+    - 2
+    messages:
+    - !!python/object:server_data.Messages
+      content: h
+      message_id: 8
+      reaction: {}
+      sender: 2
+      status: false
+      time: 1573804001.41743
+    - !!python/object:server_data.Messages
+      content: h
+      message_id: 7
+      reaction: {}
+      sender: 2
+      status: false
+      time: 1573804000.939826
+    - !!python/object:server_data.Messages
+      content: h
+      message_id: 6
+      reaction: {}
+      sender: 2
+      status: false
+      time: 1573804000.70419
+    - !!python/object:server_data.Messages
+      content: h
+      message_id: 5
+      reaction: {}
+      sender: 2
+      status: false
+      time: 1573804000.3743382
+    - !!python/object:server_data.Messages
+      content: hhhh
+      message_id: 4
+      reaction: {}
+      sender: 2
+      status: false
+      time: 1573803988.2355998
+    - !!python/object:server_data.Messages
+      content: ooooo
+      message_id: 3
+      reaction: {}
+      sender: 2
+      status: false
+      time: 1573803985.212167
+    name: CHANNEL_2
+    owner:
+    - 2
+    standups: []
+    starter: null
+    status: false
+    time_finish: null
+message_id_ct: 9
+msg_id_dict:
+  0: 1
+  1: 1
+  2: 1
+  3: 2
+  4: 2
+  5: 2
+  6: 2
+  7: 2
+  8: 2
+reset_code: {}
+token_dict:
+<<<<<<< HEAD
+  ? eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjEyM0AxMjMuY29tMjAxOS0xMS0wNyAxMzo0Nzo1OC4yMzk4MjUifQ.aje-ux6binfMmkxZVrH2UBzl-ul8IFXxY-oE0H6myqA
+  : 1
+  ? eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjEyM0AxMjMuY29tMjAxOS0xMS0wNyAxMzowMzowNS41Njk4MzEifQ.Agb7Q7oduykC4OYWeapvHhiejrx_SG6XwWfkwqnM-OE
+  : 1
+  ? eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjMyMUAzMjEuY29tMjAxOS0xMS0wNyAxMjo1NTo1MC4zNzA0MTEifQ.IRZzDQLiLc7njZ-Ra6JiuLmxbAMUBlGMhRj04sexZIs
+=======
+  ? eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjEyM0AxMjMuY29tMjAxOS0xMS0xNSAxNDo0NDoyNC45OTE0NzUifQ.GEQO9-Jv7lHwFQGTWi9KTCoJJIbJU2--LV7iGLNUd0E
+>>>>>>> ffc580d630f721093d632a8cdaac32c363452001
+  : 2
+u_id_ct: 2
+users:
+  1: !!python/object:server_data.User
+    channel_in:
+    - 1
+    email: 15620308123@163.com
+    fname: Shuhao
+    handle: '@ShuhaoHu'
+    lname: Hu
+    password: b87e3ee005f751c7d668f1ca19cdadf48e32ba114e3b3b91655c668b6385e20c
+    permission_id: 3
+    profile_img_url: null
+    u_id: 1
+  2: !!python/object:server_data.User
+    channel_in:
+    - 1
+    - 2
+    email: 123@123.com
+    fname: op
+    handle: '@1bjfa'
+    lname: hu
+    password: 96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e
+    permission_id: 3
+    profile_img_url: http://localhost:5001/server/images/2.jpg
+    u_id: 2

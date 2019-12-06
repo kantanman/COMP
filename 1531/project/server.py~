@@ -1,0 +1,297 @@
+"""Flask server"""
+import sys
+from json import dumps
+sys.path.insert(1,'server/')
+from flask import Flask, request
+from flask_cors import CORS
+
+import server_data
+from admin_userpermission_change import admin_userpermission_change
+from auth_login import auth_login
+from auth_logout import auth_logout
+from auth_passwordreset_reset import auth_passwordreset_reset
+from auth_register import auth_register
+from channel_addowner import channel_addowner
+from channel_details import channel_details
+from channel_invite import channel_invite
+from channel_join import channel_join
+from channel_leave import channel_leave
+from channel_list import channel_list
+from channel_listall import channel_listall
+from channel_messages import channel_messages
+from channel_removeowner import channel_removeowner
+from channels_create import channels_create
+from data_class import Data
+from ld_data import dump_data, load_data
+from message_edit import edit_message
+from message_pin import pin_message
+from message_react import react_message
+from message_remove import remove_message
+from message_send import message_send
+from message_sendlater import message_sendlater
+from message_unpin import unpin_message
+from message_unreact import unreact_message
+from standup_send import standup_send
+from standup_start import standup_start
+from auth_passwordreset_request import send_mail
+from user_profile import user_profile
+from user_profile_setemail import set_email
+from user_profile_sethandle import set_handle
+from user_profile_setname import set_name
+from users_all import users_all
+from standup_active import standup_active
+from search import search_mes
+
+APP = Flask(__name__)
+CORS(APP)
+
+APP.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=465,
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME = 'LambshankRedeption1531@gmail.com',
+    MAIL_PASSWORD = "unsw1234"
+)
+
+
+@APP.route('/auth/register', methods = ['POST'])
+def register_auth():
+    name_first = request.form.get('name_first')
+    name_last = request.form.get('name_last')
+    email = request.form.get('email')
+    password = request.form.get('password')
+    data = auth_register(email, password, name_first, name_last)
+    return dumps(data)
+
+@APP.route('/auth/login', methods = ['POST'])
+def login_auth():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    data = auth_login(email, password)
+    return dumps(data)
+
+@APP.route('/echo/get', methods=['GET'])
+def echo1():
+    """ Description of function """
+    return dumps({
+        'echo' : request.args.get('echo'),
+    })
+@APP.route('/auth/logout', methods = ['POST'])
+def logout_auth():
+    token = request.form.get('token')
+    data = auth_logout(token)
+    return dumps(data)
+@APP.route('/echo/post', methods=['POST'])
+def echo2():
+    """ Description of function """
+    return dumps({
+        'echo' : request.form.get('echo'),
+    })
+@APP.route('/channels/create', methods = ['POST'])
+def create_channel():
+    token = request.form.get('token')
+    name = request.form.get('name')
+    is_public = request.form.get('is_public')
+    data = channels_create(token, name, is_public)
+    return dumps(data)
+
+@APP.route('/channel/addowner', methods = ['POST'])
+def addowner_channel():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    u_id = request.form.get('u_id')
+    data = channel_addowner(token, channel_id, u_id)
+    return dumps(data)
+@APP.route('/channel/details', methods = ['GET'])
+def details_channel():
+    token = request.args.get('token')
+    channel_id = request.args.get('channel_id')
+    data = channel_details(token, channel_id)
+    return dumps(data)
+@APP.route('/channel/invite', methods = ['POST'])
+def invite_channel():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    u_id = request.form.get('u_id')
+    data = channel_invite(token, channel_id, u_id)
+    return dumps(data)
+@APP.route('/channel/join', methods = ['POST'])
+def join_channel():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    data = channel_join(token, channel_id)
+    return dumps(data)
+@APP.route('/channel/leave', methods = ['POST'])
+def leave_channel():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    data = channel_leave(token, channel_id)
+    return dumps(data)
+@APP.route('/channels/list', methods = ['GET'])
+def list_channel():
+    token = request.args.get('token')
+    data = channel_list(token)
+    return dumps(data)
+@APP.route('/channels/listall', methods = ['GET'])
+def listall_channel():
+    token = request.args.get('token')
+    data = channel_listall(token)
+    return dumps(data)
+@APP.route('/channel/messages', methods = ['GET'])
+def messages_channel():
+    token = request.args.get('token')
+    channel_id = request.args.get('channel_id')
+    start = request.args.get('start')
+    data = channel_messages(token, channel_id, start)
+    print(data['messages'])
+    return dumps(data)
+@APP.route('/standup/start', methods = ['POST'])
+def start_standup():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    length = request.form.get('length')
+    data = standup_start(token, channel_id, length)
+    return dumps(data)
+@APP.route('/channel/removeowner', methods = ['POST'])
+def owner_remove():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    u_id = request.form.get('u_id')
+    data = channel_removeowner(token, channel_id, u_id)
+    return dumps(data)
+@APP.route('/message/edit', methods=['PUT'])
+def editmessage():
+    token = request.form.get('token')
+    message_id = request.form.get('message_id')
+    message = request.form.get('message')
+    data = edit_message(token, message_id, message)
+    return dumps(data)
+    
+@APP.route('/message/pin', methods=['POST'])
+def pinmessage():
+    print("HELLLLOOO PIN MESSAGE")
+    token = request.form.get('token')
+    message_id = request.form.get('message_id')
+    data = pin_message(token, message_id)
+    print("TINME TO GO")
+    print(data)
+    return dumps(data)
+
+@APP.route('/message/send', methods=['POST'])
+def send_message():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    message = request.form.get('message')
+    data = message_send(token, channel_id, message)
+    return dumps(data)
+
+@APP.route('/message/react', methods=['POST'])
+def message_react():
+    token = request.form.get('token')
+    message_id = request.form.get('message_id')
+    react_id = request.form.get('react_id')
+    data = react_message(token, message_id, react_id)
+    return dumps(data)
+@APP.route('/message/remove', methods=['DELETE'])
+def messageremove():
+    token = request.form.get('token')
+    message_id = request.form.get('message_id')
+    data = remove_message(token, message_id)
+    return dumps(data)
+
+@APP.route('/user/profile', methods=['GET'])
+def userprofile():
+    token = request.args.get('token')
+    u_id = request.args.get('u_id')
+    data = user_profile(token, u_id)
+    return dumps(data)
+@APP.route('/user/profile/setemail', methods=['PUT'])
+def setemail():
+    token = str(request.form.get('token'))
+    new_email = str(request.form.get('email'))
+    data = set_email(token, new_email)
+    return dumps(data)
+@APP.route('/user/profile/setname', methods=['PUT'])
+def setname():
+    token = str(request.form.get('token'))
+    new_fname = str(request.form.get('name_first'))
+    new_lname = str(request.form.get('name_last'))
+    data = set_name(token, new_fname, new_lname)
+    return dumps(data)
+@APP.route('/user/profile/sethandle', methods=['PUT'])
+def sethandle():
+    token = str(request.form.get('token'))
+    handle_str = str(request.form.get('handle_str'))
+    data = set_handle(token, handle_str)
+    return dumps(data)
+@APP.route('/message/unpin', methods=['POST'])
+def unpinmessage():
+    token = request.form.get('token')
+    message_id = request.form.get('message_id')
+    data = unpin_message(token, message_id)
+    return dumps(data)
+@APP.route('/message/unreact', methods=['POST'])    
+def unreactmessage():
+    token = request.form.get('token')
+    message_id = request.form.get('message_id')
+    react_id = request.form.get('react_id')
+    data = unreact_message(token, message_id, react_id)
+    return dumps(data)
+@APP.route('/admin/userpermission/change', methods = ['POST'])
+def ad_p_c():
+    token = request.form.get('token')
+    u_id = request.form.get('u_id')
+    permission_id = request.form.get('permission_id')
+    data = admin_userpermission_change(token, u_id, permission_id)
+    return dumps(data)
+@APP.route('/auth/passwordreset/reset', methods = ['POST'])
+def auth_pw_reset():
+    reset_code = request.form.get('reset_code')
+    new_password = request.form.get('new_password')
+    data = auth_passwordreset_reset(reset_code, new_password)
+    return dumps(data)
+@APP.route('/users/all', methods = ['GET'])
+def all_users():
+    token = request.args.get('token')
+    data = users_all(token)
+    return dumps(data)
+@APP.route('/standup/active', methods = ['GET'])
+def standupActive():
+    token = request.args.get('token')
+    channel_id = request.args.get('channel_id')
+    data = standup_active(token, channel_id)
+    return dumps(data)
+@APP.route('/standup/send', methods = ['POST'])
+def standupSend():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    message = request.form.get('message')
+    data = standup_send(token, channel_id, message)
+    return dumps(data)
+
+
+@APP.route('/auth/passwordreset/request', methods=['POST'])
+def mail_send():
+    email = request.form.get('email')
+    data = send_mail(email)
+    return dumps(data)
+    
+@APP.route('/search', methods=['GET'])
+def search_():
+    token = request.args.get('token')
+    query_str = request.args.get('query_str')
+    data = search_mes(token, query_str)
+    return dumps(data)
+
+@APP.route('/message/sendlater', methods=['POST'])
+def sendlater_message():
+    token = request.form.get('token')
+    channel_id = request.form.get('channel_id')
+    message = request.form.get('message')
+    time_sent = request.form.get('time_sent')
+    data = message_sendlater(token, channel_id, message, time_sent)
+    return dumps(data)
+
+if __name__ == '__main__':
+
+    APP.run(port=(sys.argv[1] if len(sys.argv) > 1 else 5000))
