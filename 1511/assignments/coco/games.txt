@@ -1,0 +1,3 @@
+/home/cs1511/bin/coco_referee -s 13081801 dodo.c
+
+/home/cs1511/bin/coco_referee -s 4102146 coco.c

@@ -1,0 +1,87 @@
+Version: 0.1 Hostname: weber
+dcc -o coco dodo.c
+dcc --valgrind -o coco-valgrind dodo.c
+
+Deal:
+Table position 0: Connor: [11, 13, 15, 20, 23, 27, 29, 41, 42, 44]
+Table position 1: Eugene: [10, 17, 19, 28, 30, 34, 37, 43, 45, 48]
+Table position 2: Oscar : [12, 16, 21, 22, 24, 25, 26, 33, 40, 46]
+Table position 3: Claire: [14, 18, 31, 32, 35, 36, 38, 39, 47, 49]
+
+Discards:
+Connor [11, 29, 41]
+Eugene [43, 45, 48]
+Oscar  [22, 33, 46]
+Claire [32, 36, 38]
+
+Round 0: Connor holding [13, 15, 20, 23, 27, 32, 36, 38, 42, 44] plays the 38 
+Round 0: Eugene holding [10, 11, 17, 19, 28, 29, 30, 34, 37, 41] plays the 34 
+Round 0: Oscar  holding [12, 16, 21, 24, 25, 26, 40, 43, 45, 48] plays the 26 
+Round 0: Claire holding [14, 18, 22, 31, 33, 35, 39, 46, 47, 49] plays the 46 
+Claire wins the round 
+
+Round 1: Claire holding [14, 18, 22, 31, 33, 35, 39, 47, 49] plays the 33 
+Round 1: Connor holding [13, 15, 20, 23, 27, 32, 36, 42, 44] plays the 42 
+Round 1: Eugene holding [10, 11, 17, 19, 28, 29, 30, 37, 41] plays the 30 
+Round 1: Oscar  holding [12, 16, 21, 24, 25, 40, 43, 45, 48] plays the 12 
+Connor wins the round which contains 7 penalty points
+
+Round 2: Connor holding [13, 15, 20, 23, 27, 32, 36, 44] plays the 32 
+Round 2: Eugene holding [10, 11, 17, 19, 28, 29, 37, 41] plays the 28 
+Round 2: Oscar  holding [16, 21, 24, 25, 40, 43, 45, 48] plays the 48 
+Round 2: Claire holding [14, 18, 22, 31, 35, 39, 47, 49] plays the 22 
+Oscar wins the round 
+
+Round 3: Oscar  holding [16, 21, 24, 25, 40, 43, 45] plays the 45 
+Round 3: Claire holding [14, 18, 31, 35, 39, 47, 49] plays the 35 
+Round 3: Connor holding [13, 15, 20, 23, 27, 36, 44] plays the 15 
+Round 3: Eugene holding [10, 11, 17, 19, 29, 37, 41] plays the 10 
+Oscar wins the round 
+
+Round 4: Oscar  holding [16, 21, 24, 25, 40, 43] plays the 25 
+Round 4: Claire holding [14, 18, 31, 39, 47, 49] plays the 39 
+Round 4: Connor holding [13, 20, 23, 27, 36, 44] plays the 20 
+Round 4: Eugene holding [11, 17, 19, 29, 37, 41] plays the 41 
+Oscar wins the round which contains 1 penalty points
+
+Round 5: Oscar  holding [16, 21, 24, 40, 43] plays the 16 
+Round 5: Claire holding [14, 18, 31, 47, 49] plays the 18 
+Round 5: Connor holding [13, 23, 27, 36, 44] plays the 36 
+Round 5: Eugene holding [11, 17, 19, 29, 37] plays the 37 
+Connor wins the round which contains 1 penalty points
+
+Round 6: Connor holding [13, 23, 27, 44] plays the 44 
+Round 6: Eugene holding [11, 17, 19, 29] plays the 29 
+Round 6: Oscar  holding [21, 24, 40, 43] plays the 24 
+Round 6: Claire holding [14, 31, 47, 49] plays the 14 
+Connor wins the round which contains 1 penalty points
+
+Round 7: Connor holding [13, 23, 27] plays the 23 
+Round 7: Eugene holding [11, 17, 19] plays the 19 
+Round 7: Oscar  holding [21, 40, 43] plays the 43 
+Round 7: Claire holding [31, 47, 49] plays the 31 
+Oscar wins the round which contains 4 penalty points
+
+Round 8: Oscar  holding [21, 40] plays the 21 
+Round 8: Claire holding [47, 49] plays the 49 
+Round 8: Connor holding [13, 27] plays the 27 
+Round 8: Eugene holding [11, 17] plays the 17 
+Claire wins the round which contains 1 penalty points
+
+Round 9: Claire holding [47] plays the 47 
+Round 9: Connor holding [13] plays the 13 
+Round 9: Eugene holding [11] plays the 11 
+Round 9: Oscar  holding [40] plays the 40 
+Claire wins the round which contains 3 penalty points
+
+
+Finishing Positions
+
+#1 with 0 penalty points Eugene (dodo.c)
+#2 with 4 penalty points Claire (system)
+#3 with 5 penalty points Oscar (system)
+#4 with 9 penalty points Connor (system)
+
+You can rerun this game with this command:
+/home/cs1511/bin/coco_referee -s 10025107 dodo.c
+
