@@ -1,0 +1,85 @@
+FIRE:
+
+--> #077: Ponyta
+    #078: Rapidash
+    #146: Moltres
+    #037: Vulpix
+    #005: Charmeleon
+    #006: Charizard
+    #126: Magmar
+    #038: Ninetales
+    #136: Flareon
+    #058: Growlithe
+    #004: Charmander
+    #059: Arcanine
+
+Water:
+
+--> #130: Gyarados
+    #055: Golduck
+    #134: Vaporeon
+    #008: Wartortle
+    #139: Omastar
+    #131: Lapras
+    #098: Krabby
+    #090: Shellder
+    #116: Horsea
+    #086: Seel
+    #087: Dewgong
+    #091: Cloyster
+    #009: Blastoise
+    #080: Slowbro
+    #061: Poliwhirl
+    #120: Staryu
+    #140: Kabuto
+    #054: Psyduck
+    #117: Seadra
+    #072: Tentacool
+    #129: Magikarp
+    #118: Goldeen
+    #119: Seaking
+    #079: Slowpoke
+    #062: Poliwrath
+    #060: Poliwag
+    #138: Omanyte
+    #073: Tentacruel
+    #099: Kingler
+    #121: Starmie
+    #141: Kabutops
+    #007: Squirtle
+
+Grass:
+
+--> #001: Bulbasaur
+    #003: Venusaur
+    #045: Vileplume
+    #069: Bellsprout
+    #043: Oddish
+    #102: Exeggcute
+    #114: Tangela
+    #002: Ivysaur
+    #044: Gloom
+    #046: Paras
+    #047: Parasect
+    #071: Victreebel
+    #070: Weepinbell
+    #103: Exeggutor
+
+
+
+Earth:
+
+--> #031: Nidoqueen
+    #027: Sandshrew
+    #111: Rhyhorn
+    #076: Golem
+    #074: Geodude
+    #050: Diglett
+    #028: Sandslash
+    #034: Nidoking
+    #095: Onix
+    #075: Graveler
+    #112: Rhydon
+    #105: Marowak
+    #051: Dugtrio
+    #104: Cubone
